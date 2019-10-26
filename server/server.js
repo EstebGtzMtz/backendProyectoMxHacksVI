@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.use(require('./routes/users'));
 
-mongoose.connect('mongodb://localhost:27017/sabuesoDB', { useNewUrlParser: true, useUnifiedTopology: true }, (err, res) => {
+mongoose.connect(process.env.URL_DB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, (err, res) => {
     if (err) throw err;
     console.log('Database online');
 });
