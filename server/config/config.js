@@ -12,4 +12,4 @@ if (process.env.NODE_ENV) {
 } else {
     urlDB = 'mongodb://sabuesoUser:a123456@ds139768.mlab.com:39768/mxhacks';
 }
-process.env.URL_DB = urlDB;
+process.env.URLDB = urlDB;
