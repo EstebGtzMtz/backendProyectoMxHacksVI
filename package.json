@@ -1,0 +1,15 @@
+{
+    "name": "backendsabueso",
+    "version": "1.0.0",
+    "description": "Backend de proyecto para MXHacks VI",
+    "main": "index.js",
+    "scripts": {
+        "run": "node server/server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Esteban Gutierrez",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
