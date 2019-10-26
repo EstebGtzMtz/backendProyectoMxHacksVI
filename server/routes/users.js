@@ -28,8 +28,6 @@ app.post('/user', (req, res) => {
         role: body.role
     });
 
-    console.log(body)
-
     user.save((err, userSuccesfullySavedInDB) => {
         if (err) { return res.status(400).json({ ok: false, err }) }
 
