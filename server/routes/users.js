@@ -18,7 +18,7 @@ app.get('/user/:id', tokenVerify, (req, res) => {
         });
 });
 
-app.post('/user', tokenVerify, (req, res) => {
+app.post('/user', (req, res) => {
     const body = req.body;
 
     const user = new User({
