@@ -1,10 +1,13 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const _ = require('underscore');
+const jwt = require('jsonwebtoken');
 const app = express();
 const User = require('../models/user');
 
-app.get('/user/:id', (req, res) => {
+const { tokenVerify } = require('../middleware/autentication');
+
+app.get('/user/:id', tokenVerify, (req, res) => {
     const id = req.params.id;
 
     User.findById(id, 'name lastName age email img phoneNumber')
@@ -15,7 +18,7 @@ app.get('/user/:id', (req, res) => {
         });
 });
 
-app.post('/user', (req, res) => {
+app.post('/user', tokenVerify, (req, res) => {
     const body = req.body;
 
     const user = new User({
@@ -35,7 +38,7 @@ app.post('/user', (req, res) => {
     });
 });
 
-app.put('/user/:id', (req, res) => {
+app.put('/user/:id', tokenVerify, (req, res) => {
     const id = req.params.id;
     const body = _.pick(req.body, ['name', 'lastName', 'age', 'phoneNumber', 'email', 'img', 'havePets']);
 
@@ -47,7 +50,7 @@ app.put('/user/:id', (req, res) => {
 
 });
 
-app.delete('/user/:id', (req, res) => {
+app.delete('/user/:id', tokenVerify, (req, res) => {
     const id = req.params.id;
     const deletedUser = { isActive: false };
 

@@ -4,6 +4,12 @@ process.env.PORT = process.env.PORT || 3000;
 //Envorinment
 process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
+//Token expires in
+process.env.TOKEN_EXPIRES = '48h';
+
+//SEED
+process.env.SEED = 'secret-seed'
+
 //Database
 let urlDB;
 
