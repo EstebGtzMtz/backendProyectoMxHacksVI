@@ -37,6 +37,10 @@ const petsSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User'
+    },
+    description: {
+        type: String,
+        require: [true, 'field description must be provided']
     }
 });
 
